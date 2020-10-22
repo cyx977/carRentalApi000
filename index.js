@@ -27,6 +27,6 @@ app.use('/',(req,res)=> res.send('homepage/homepage.ejs'));
 
 
 
-app.listen(3001, function () {
+app.listen(process.env.PORT, function () {
     console.log('Example app listening at localhost:3001');
 });
