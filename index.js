@@ -23,10 +23,10 @@ const rentRoutes = require('./routes/rent');
 app.use('/car', carRoutes);
 app.use('/customer', customerRoutes);
 app.use('/rent', rentRoutes);
-app.use('/',(req,res)=> res.send('homepage/homepage.ejs'));
+app.use('/',(req,res)=> res.send({"status": "connected"}));
 
 
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('Example app listening at localhost:3001');
 });
