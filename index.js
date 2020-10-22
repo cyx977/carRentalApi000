@@ -20,11 +20,16 @@ const carRoutes = require('./routes/car');
 const customerRoutes = require('./routes/customer');
 const rentRoutes = require('./routes/rent');
 
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 app.use('/car', carRoutes);
 app.use('/customer', customerRoutes);
 app.use('/rent', rentRoutes);
 app.use('/',(req,res)=> res.send({"status": "connected"}));
-
 
 
 app.listen(process.env.PORT || 3000, function () {

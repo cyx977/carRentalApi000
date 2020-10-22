@@ -2,12 +2,7 @@
 
 const router = require('express').Router();
 const Vehicles = require('../models/cars');
-router.get('/', function (req, res) {
-    res.send({
-        "type": '',
-        "message": '',
-    });
-});
+
 router.get('/list', function (req, res) {
     Vehicles.find().then((datas) => {
         res.send({
@@ -15,6 +10,7 @@ router.get('/list', function (req, res) {
         });
     });
 });
+
 router.post('/', function (req, res) {
     const { carNumber, carColor, category, carModelOrName } = req.body;
     console.log(carNumber, carColor,carModelOrName,category)
